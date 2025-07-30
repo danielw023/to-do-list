@@ -22,7 +22,12 @@ class TaskController extends Controller
 
         Task::create($validated);
 
-        return to_route('tasks.index')->with('success', 'Task created successfully');
+        return to_route('tasks.index')->with(
+            [
+                "alert_type" => 'success',
+                "alert_message" => "Task created successfully!"
+            ]
+        );
     }
 
     public function update(Task $task): RedirectResponse
@@ -31,13 +36,23 @@ class TaskController extends Controller
             'completed' => true
         ]);
 
-        return to_route('tasks.index')->with('success', 'Task updated successfully!');
+        return to_route('tasks.index')->with(
+            [
+                "alert_type" => 'success',
+                "alert_message" => "Task updated successfully!"
+            ]
+        );
     }
 
     public function destroy(Task $task): RedirectResponse
     {
         $task->delete();
 
-        return to_route('tasks.index')->with('success', 'Task deleted successfully!');
+        return to_route('tasks.index')->with(
+            [
+                "alert_type" => 'success',
+                "alert_message" => "Task deleted successfully!"
+            ]
+        );
     }
 }
