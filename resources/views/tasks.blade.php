@@ -43,14 +43,14 @@
                                 <form action="{{ route("tasks.update", ['task' => $task->id ]) }}" method="POST" class="d-inline ms-1">
                                     @csrf
                                     @method('PUT')
-                                    <button type="submit" class="btn btn-sm btn-success" aria-label="complete">
+                                    <button type="submit" class="btn btn-sm btn-success" aria-label="Complete">
                                         <i class="fas fa-check"></i>
                                     </button>
                                 </form>
                                 <form action="{{ route("tasks.destroy", ['task' => $task->id ]) }}" method="POST" class="d-inline ms-1">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" aria-label="delete">
+                                    <button type="submit" class="btn btn-sm btn-danger" aria-label="Delete">
                                         <i class="fas fa-times"></i>
                                     </button>
                                 </form>
