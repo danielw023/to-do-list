@@ -16,7 +16,7 @@ use App\Http\Controllers\TaskController;
 
 Route::controller(TaskController::class)->group(function () {
     Route::get('/', 'index')->name('tasks.index');
-    Route::post('/tasks',  'store')->name('tasks.store');
-    Route::put('/tasks/{task}',  'update')->name('tasks.update');
+    Route::post('/tasks', 'store')->name('tasks.store');
+    Route::put('/tasks/{task}', 'update')->name('tasks.update');
     Route::delete('/tasks/{task}', 'destroy')->name('tasks.destroy');
 });

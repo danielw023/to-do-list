@@ -9,3 +9,7 @@ body {
 .table-group-divider {
     border-top-color: lightgray;
 }
+
+.w-5 {
+    width: 5%;
+}
