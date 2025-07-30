@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('tasks');
+Route::controller(TaskController::class)->group(function () {
+    Route::get('/', 'index')->name('tasks.index');
+    Route::post('/tasks',  'store')->name('tasks.store');
+    Route::put('/tasks/{task}',  'update')->name('tasks.update');
+    Route::delete('/tasks/{task}', 'destroy')->name('tasks.destroy');
 });
