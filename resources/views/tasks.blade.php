@@ -11,6 +11,7 @@
                            placeholder="Insert task name"
                            title="task name"
                            value="{{ old('description') }}"
+                           autocomplete="off"
                            required>
                     @error('description')
                     <div class="invalid-feedback">
@@ -21,40 +22,25 @@
                 <button type="submit" class="btn btn-primary text-white fw-light w-100">Add</button>
             </form>
         </div>
-        <div class="col-sm-12 col-lg-8">
-            <table class="table fw-light border p-5">
+        <div class="col-sm-12 col-lg-8 border bg-white px-2 mt-sm-2 mt-lg-0">
+            <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col" class="fw-light">#</th>
-                    <th scope="col" class="fw-light">Task</th>
+                    <th scope="col" class="fw-normal w-5">#</th>
+                    <th scope="col" class="fw-normal">Task</th>
                     <td aria-hidden="true"></td>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-group-divider">
                 @foreach($tasks as $task)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td class="@if($task->completed) text-decoration-line-through @endif">
+                        <td class="fw-light">{{ $loop->iteration }}</td>
+                        <td class="@if($task->completed) text-decoration-line-through @endif fw-light">
                             {{ $task->description }}
                         </td>
                         @if(!$task->completed)
                         <td class="text-end">
-                            <div class="btn-group" role="group">
-                                <form action="{{ route("tasks.update", ['task' => $task->id ]) }}" method="POST" class="d-inline ms-1">
-                                    @csrf
-                                    @method('PUT')
-                                    <button type="submit" class="btn btn-sm btn-success" aria-label="Complete">
-                                        <i class="fas fa-check"></i>
-                                    </button>
-                                </form>
-                                <form action="{{ route("tasks.destroy", ['task' => $task->id ]) }}" method="POST" class="d-inline ms-1">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" aria-label="Delete">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </form>
-                            </div>
+                            <x-task-actions :task="$task"/>
                         </td>
                         @else
                         <td></td>
@@ -64,5 +50,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
+        </div>
 </x-layout>
