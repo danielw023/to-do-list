@@ -1,0 +1,11 @@
+body {
+    background-color: #f1f1f1;
+}
+
+.table tbody tr:last-child td {
+    border-bottom-width: 0 !important;
+}
+
+.table-group-divider {
+    border-top-color: lightgray;
+}
