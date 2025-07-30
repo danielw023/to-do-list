@@ -4,8 +4,8 @@
 <body>
     <div class="container-md">
         <x-header />
-        @if(session()->has(['alert_type', 'alert_message']))
-            <x-alert type="{{session('alert_type')}}" message="{{session('alert_message')}}" />
+        @if(session()->has(['alert.type', 'alert.message']))
+            <x-alert type="{{session('alert.type')}}" message="{{session('alert.message')}}" />
         @endif
         <main>
             {{ $slot }}
