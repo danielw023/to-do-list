@@ -1,17 +1,19 @@
 <?php
 
+
 namespace App\View\Components;
 
+use App\Models\Task;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Alert extends Component
+class TaskActions extends Component
 {
-    public function __construct(public string $type, public string $message) {}
+    public function __construct(public Task $task) {}
 
     public function render(): View|Closure|string
     {
-        return view('components.alert');
+        return view('components.task-actions');
     }
 }
