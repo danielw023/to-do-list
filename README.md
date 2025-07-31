@@ -24,7 +24,7 @@ You must demonstrate the following abilities/skills: make models, controllers, m
 ## Getting Started
 
 ### Prerequisites
-- PHP 8.1+
+- PHP 8.2+
 - Composer
 - Node.js and npm
 
